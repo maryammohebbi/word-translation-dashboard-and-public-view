@@ -1,18 +1,22 @@
+'use client'
 import React from 'react'
 import WordCard from './WordCard'
+import { useWord } from '@/context/WordContext'
 
 function WordsContainer() {
+  const { words, language } = useWord()
+
+  if (words.length === 0) return <p>Loading words...</p>
+
   return (
     <div className="space-y-4">
-      <WordCard />
-      <div className="border border-slate-300 shadow-2xl rounded-lg w-full p-4 flex flex-col gap-y-3">
-        <p className="font-bold text-2xl">World</p>
-        <p className="text-xl text-slate-700">جهان</p>
-      </div>
-      <div className="border border-slate-300 shadow-2xl rounded-lg w-full p-4 flex flex-col gap-y-3">
-        <p className="font-bold text-2xl">apple</p>
-        <p className="text-xl text-slate-700">no translation</p>
-      </div>
+      {words.map((word) => (
+        <WordCard
+          key={word.id}
+          keyword={word.keyword}
+          translation={word.translations[language] || 'no translation'}
+        />
+      ))}
     </div>
   )
 }
