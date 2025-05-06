@@ -1,6 +1,7 @@
 'use client'
 import { createContext, useContext, useEffect, useState } from 'react'
 import { defaultWords } from '../data/data.js'
+import { toast } from 'react-hot-toast'
 
 const WordContext = createContext()
 
@@ -11,8 +12,16 @@ export function WordProvider({ children }) {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setWords(defaultWords)
-      localStorage.setItem('words', JSON.stringify(defaultWords))
+      const storedWords = localStorage.getItem('words')
+
+      if (storedWords) {
+        setWords(JSON.parse(storedWords))
+      } else {
+        setWords(defaultWords)
+        localStorage.setItem('words', JSON.stringify(defaultWords))
+        toast.success('Default words loaded successfully!')
+      }
+
       setIsInitialized(true)
     }
   }, [])
@@ -32,6 +41,7 @@ export function WordProvider({ children }) {
       },
     }
     setWords((prevWords) => [...prevWords, newWord])
+    toast.success('New word added successfully!')
   }
 
   const updateTranslation = (id, value) => {
@@ -45,6 +55,7 @@ export function WordProvider({ children }) {
           : word
       )
     )
+    toast.success('Translation updated successfully!')
   }
 
   return (
