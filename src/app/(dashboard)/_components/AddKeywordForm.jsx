@@ -19,7 +19,7 @@ function AddKeywordForm({ onClose }) {
   }
 
   return (
-    <div className="space-y-20">
+    <div className="space-y-10">
       <h3 className="font-bold text-center">Add New Keyword</h3>
       <form onSubmit={handleSubmit}>
         <div className="border-b border-slate-400 flex justify-between p-5 gap-x-2">

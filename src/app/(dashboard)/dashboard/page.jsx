@@ -32,8 +32,14 @@ function SortableKeyword({ id, keyword, translation }) {
   }
 
   return (
-    <div ref={setNodeRef} style={style} {...attributes} {...listeners}>
-      <Keyword id={id} keyword={keyword} translation={translation} />
+    <div ref={setNodeRef} style={style} {...attributes}>
+      {/* Pass listeners to a dedicated handle */}
+      <Keyword
+        id={id}
+        keyword={keyword}
+        translation={translation}
+        dragHandleProps={listeners}
+      />
     </div>
   )
 }
