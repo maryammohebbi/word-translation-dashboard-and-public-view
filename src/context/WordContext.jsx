@@ -68,9 +68,21 @@ export function WordProvider({ children }) {
     toast.success('Translation updated successfully!')
   }
 
+  const reorderWords = (newOrder) => {
+    setWords(newOrder)
+    localStorage.setItem('words', JSON.stringify(newOrder))
+  }
   return (
     <WordContext.Provider
-      value={{ words, language, setLanguage, addWord, updateTranslation }}
+      value={{
+        words,
+        language,
+        setLanguage,
+        addWord,
+        updateTranslation,
+        reorderWords,
+        setWords,
+      }}
     >
       {children}
     </WordContext.Provider>

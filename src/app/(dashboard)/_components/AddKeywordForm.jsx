@@ -28,7 +28,7 @@ function AddKeywordForm({ onClose }) {
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}
             className="bg-green-50 text-center w-36 p-1 rounded-md text-slate-700 border border-green-100 shadow-2xl text-lg"
-            placeholder="New Keyword"
+            placeholder="Keyword"
             required
           />
           <input

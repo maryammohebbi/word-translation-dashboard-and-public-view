@@ -28,13 +28,8 @@ function Keyword({ keyword, translation, id }) {
   }
 
   return (
-    <div className="border-b border-slate-400 flex justify-between p-2">
-      <label
-        htmlFor=""
-        className={`${!currentTranslation && 'text-red'} text-2xl`}
-      >
-        {keyword}
-      </label>
+    <div className="border-b border-slate-400 flex justify-between p-2 hover:cursor-pointer">
+      <span className="text-2xl">{keyword}</span>
       <input
         ref={inputRef}
         type="text"

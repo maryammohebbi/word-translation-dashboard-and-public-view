@@ -3,7 +3,7 @@ import Header from '@/ui/Header'
 
 export default function Home() {
   return (
-    <div className="bg-white w-full p-7 rounded-lg h-full">
+    <div className="bg-white w-full p-7 rounded-lg h-full overflow-y-auto">
       <Header title="Word Translations" />
       <WordsContainer />
     </div>
