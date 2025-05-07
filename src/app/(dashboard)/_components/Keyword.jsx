@@ -9,7 +9,6 @@ function Keyword({ keyword, translation, id }) {
   const [isEditing, setIsEditing] = useState(false)
   const inputRef = useRef(null)
 
-  // Update local state when prop changes
   useEffect(() => {
     setCurrentTranslation(translation)
   }, [translation])
@@ -30,13 +29,16 @@ function Keyword({ keyword, translation, id }) {
 
   return (
     <div className="border-b border-slate-400 flex justify-between p-2">
-      <label htmlFor="" className="text-2xl">
+      <label
+        htmlFor=""
+        className={`${!currentTranslation && 'text-red'} text-2xl`}
+      >
         {keyword}
       </label>
       <input
         ref={inputRef}
         type="text"
-        value={currentTranslation}
+        value={currentTranslation || '....'}
         onChange={(e) => setCurrentTranslation(e.target.value)}
         onFocus={() => setIsEditing(true)}
         onBlur={handleBlur}

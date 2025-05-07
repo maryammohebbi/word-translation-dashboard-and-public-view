@@ -37,10 +37,20 @@ export function WordProvider({ children }) {
       id: Date.now().toString(),
       keyword,
       translations: {
-        [language]: translation,
+        fa: translation,
+        es: '',
+        fr: '',
+        de: '',
+        kr: '',
       },
     }
-    setWords((prevWords) => [...prevWords, newWord])
+
+    setWords((prevWords) => {
+      const updated = [...prevWords, newWord]
+      localStorage.setItem('words', JSON.stringify(updated))
+      return updated
+    })
+
     toast.success('New word added successfully!')
   }
 

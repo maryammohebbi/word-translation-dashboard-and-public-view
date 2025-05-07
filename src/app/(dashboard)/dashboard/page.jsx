@@ -4,8 +4,8 @@ import React, { useState } from 'react'
 import Keyword from '../_components/Keyword'
 import { FaPlus } from 'react-icons/fa6'
 import { Dialog, DialogContent } from '@mui/material'
-import AddKeywordFrom from '../_components/AddKeywordFrom'
 import { useWord } from '@/context/WordContext'
+import AddKeywordForm from '../_components/AddKeywordForm'
 
 function Dashboard() {
   const [open, setOpen] = useState(false)
@@ -21,7 +21,7 @@ function Dashboard() {
                 key={word.id}
                 id={word.id}
                 keyword={word.keyword}
-                translation={word.translations[language] || 'no translation'}
+                translation={word.translations[language]}
               />
             )
           })}
@@ -34,20 +34,9 @@ function Dashboard() {
           <FaPlus className="w-5 h-5" /> <span>Add Keyword</span>
         </button>
       </div>
-      <Dialog
-        open={open}
-        onClose={() => setOpen(false)}
-        slotProps={{
-          paper: {
-            component: 'form',
-            onSubmit: (event) => {
-              event.preventDefault()
-            },
-          },
-        }}
-      >
+      <Dialog open={open} onClose={() => setOpen(false)}>
         <DialogContent>
-          <AddKeywordFrom />
+          <AddKeywordForm onClose={() => setOpen(false)} />
         </DialogContent>
       </Dialog>
     </div>

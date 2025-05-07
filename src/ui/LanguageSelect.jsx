@@ -11,10 +11,10 @@ function LanguageSelect() {
       onChange={(e) => setLanguage(e.target.value)}
     >
       <option value="fa">فارسی</option>
-      <option value="en">English</option>
       <option value="es">Español</option>
       <option value="fr">Française</option>
       <option value="de">Deutsch</option>
+      <option value="kr">한국어</option>
     </select>
   )
 }

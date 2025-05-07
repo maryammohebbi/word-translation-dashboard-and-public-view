@@ -6,8 +6,8 @@ export const defaultWords = [
       fa: 'سلام',
       es: 'hola',
       fr: 'bonjour',
-      en: 'Hello',
       de: 'Hallo',
+      kr: '안녕',
     },
   },
   {
@@ -17,8 +17,8 @@ export const defaultWords = [
       fa: 'جهان',
       es: 'mundo',
       fr: 'monde',
-      en: 'World',
       de: 'die welt',
+      kr: '세계',
     },
   },
   {
@@ -28,8 +28,8 @@ export const defaultWords = [
       fa: '',
       es: 'manzana',
       fr: 'pomme',
-      en: '',
       de: '',
+      kr: '사과',
     },
   },
 ]
