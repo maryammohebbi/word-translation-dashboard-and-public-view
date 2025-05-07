@@ -4,7 +4,7 @@ import { FaPlus } from 'react-icons/fa6'
 import { useWord } from '@/context/WordContext'
 
 function AddKeywordForm({ onClose }) {
-  const { addWord, language } = useWord()
+  const { addWord } = useWord()
   const [keyword, setKeyword] = useState('')
   const [translation, setTranslation] = useState('')
 

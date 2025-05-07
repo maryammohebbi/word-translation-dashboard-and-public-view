@@ -1,5 +1,5 @@
 import './globals.css'
-import vazirFont from './contants/localFont'
+import vazirFont from './constants/localFont'
 import { WordProvider } from '@/context/WordContext'
 import { Toaster } from 'react-hot-toast'
 
