@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+📘 Word Translation Dashboard
 
-## Getting Started
+This project is a two-part web application for managing and viewing translations of keywords in multiple languages.
+🔧 Features
+🧠 Management Dashboard
 
-First, run the development server:
+    View a list of pre-set keywords and their translations.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+    Add new keywords (with one language translation; others remain empty).
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+    Edit translations directly in-line.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+    Reorder keywords using drag-and-drop.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+🌍 Public View
 
-## Learn More
+    Displays all keywords and translations.
 
-To learn more about Next.js, take a look at the following resources:
+    Language switcher to dynamically change translation language.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+    Empty translations are visibly marked.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+💾 Data Persistence
 
-## Deploy on Vercel
+    All data (keywords and translations) is stored in localStorage as JSON.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+    Data is initialized from defaultWords and updated with every change.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+    Fully client-side and persistent between sessions.
+
+⚙️ Tech Stack
+
+    React with Context API for state management
+
+    Tailwind CSS for styling
+
+    dnd-kit for smooth drag-and-drop functionality
+
+    localStorage for client-side persistence
+
+    ES6+ JavaScript, HTML5, CSS3
+
+📐 Data Structure & Design Decisions
+
+The core data structure is an array of word objects stored in localStorage:
+
+{
+id: 'unique-id',
+keyword: 'example',
+translations: {
+fa: 'فارسی',
+es: 'español',
+fr: '',
+de: '',
+kr: ''
+}
+}
+
+This allows:
+
+    Fast lookup and updates for translations.
+
+    Easy mapping and reordering in UI.
+
+    Clean separation between keywords and language translations.
+
+React Context is used to share and manage global state across the app, ensuring updates are reflected in both views.
+🚀 Getting Started
+
+    Clone or unzip the project folder.
+
+    Run:
+
+    npm install
+    npm run dev
+
+    Visit:
+
+        /dashboard – to manage translations.
+
+        / – to view public-facing translations.
+
+🧪 Suggested Improvements
+
+    Add search/filter functionality for keywords.
+
+    Add animations for drag/drop transitions.
+
+    Improve accessibility and keyboard navigation.
+
+    Use localStorage sync across tabs.
+
+🌐 Languages Supported
+
+    Persian (فارسی)
+
+    Spanish (Español)
+
+    French (Française)
+
+    German (Deutsch)
+
+    Korean (한국어)
